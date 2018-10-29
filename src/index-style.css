@@ -120,3 +120,24 @@ body{
     min-height: 90px;
     padding-left: 80px;
 }
+
+/* Parcel 빌드 도구를 쓸 때에는, 아래처럼 배경이미지 스타일을 CSS 쪽에서 작성해야 합니다. */
+
+.button {
+    font-size: 0;
+    width: 40px;
+    height: 20px;
+    border: none;
+}
+
+.remove-button {
+    background: url("./btn-sprite.png");
+}
+
+.up-button {
+    background: url("./btn-sprite.png") -40px 0;
+}
+
+.down-button {
+    background: url("./btn-sprite.png") -80px 0;
+}
