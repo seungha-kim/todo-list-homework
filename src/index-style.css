@@ -121,7 +121,7 @@ body{
     padding-left: 80px;
 }
 
-/* 아래처럼  */
+/* Parcel 빌드 도구를 사용할 때에는, 아래처럼 배경이미지 스타일 코드는 CSS에서 해주어야 합니다. */
 
 .button {
     font-size: 0;
