@@ -22,14 +22,16 @@ function addTodo(newTodoText){
 
   //리스트를 삭제 할 수 있는 버튼
 
+  // *** 코멘트 ***
+  // Parcel과 같은 빌드 도구들은 **HTML이나 CSS 코드**를 분석해서 이 파일들이 필요로 하는 이미지를 연결시키는 기능을 갖고 있습니다.
+  // 아래처럼 **JavaScript에서 동적으로 배경이미지를** 넣는 경우, 최종 빌드 결과물에 btn-sprite.png 파일이 포함되지 않습니다. (npm run build 명령을 실행해서 직접 확인해보세요!)
+  // 이 문제를 해결하려면, 스타일 관련 코드를 모두 CSS로 옮기시면 됩니다. 
+  // 아직 배우지는 않았지만, 빌드 도구를 쓸 때에는 **이미지를 사용할 때도 정해진 방법대로 사용해야 한다**는 사실에 유념해주세요!
+ 
   //삭제 버튼을 만들어서 문서 안에 넣기
   const removeButtonEl = document.createElement('button')
   removeButtonEl.textContent = '삭제'
-  removeButtonEl.style.fontSize = '0'
-  removeButtonEl.style.width = '40px'
-  removeButtonEl.style.height = '20px'
-  removeButtonEl.style.border = 'none'
-  removeButtonEl.style.background= 'url("btn-sprite.png")'
+  removeButtonEl.classList.add('button', 'remove-button')
   todoItemEl.appendChild(removeButtonEl)
 
   //삭제 버튼을 클릭했을 때 할일 항목이 삭제되도록 만들기
@@ -41,11 +43,7 @@ function addTodo(newTodoText){
   //순서를 위로 바꿀 수 있는 버튼
   const upButtonEl = document.createElement('button')
   upButtonEl.textContent = '위로'
-  upButtonEl.style.fontSize = '0'
-  upButtonEl.style.width = '40px'
-  upButtonEl.style.height = '20px'
-  upButtonEl.style.border = 'none'
-  upButtonEl.style.background = 'url("btn-sprite.png") -40px 0'
+  upButtonEl.classList.add('button', 'up-button')
   todoItemEl.appendChild(upButtonEl)
   upButtonEl.addEventListener('click', e=>{
     todoListEl.insertBefore(todoItemEl, todoItemEl.previousElementSibling)
@@ -54,11 +52,7 @@ function addTodo(newTodoText){
    //순서를 아래로 바꿀 수 있는 버튼
   const downButtonEl = document.createElement('button')
   downButtonEl.textContent = '아래로'
-  downButtonEl.style.fontSize = '0'
-  downButtonEl.style.width = '40px'
-  downButtonEl.style.height = '20px'
-  downButtonEl.style.border = 'none'
-  downButtonEl.style.background = 'url("btn-sprite.png") -80px 0'
+  downButtonEl.classList.add('button', 'down-button')
   todoItemEl.appendChild(downButtonEl)
   downButtonEl.addEventListener('click', e=>{
     todoListEl.insertBefore(todoItemEl, (todoItemEl.nextElementSibling.nextElementSibling)
